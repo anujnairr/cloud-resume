@@ -1,13 +1,12 @@
 pipeline{
     agent any
-
-    stages('Checkout'){
-        steps{
-            git branch: 'main', url: 'https://github.com/anujnairr/cloud-resume.git'
-        }
-    }
-
     stages{
+        stage('Checkout'){
+            steps{
+                git branch: 'main', url: 'https://github.com/anujnairr/cloud-resume.git'
+            }
+        }
+    
         stage('Initialize'){
             steps{
                 sh 'terraform init'
