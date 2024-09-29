@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/example'
+                git branch: 'main', url: 'https://github.com/anujnairr/cloud-resume.git'
             }
         }
 
