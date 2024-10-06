@@ -1,316 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
+
 <head>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&family=Open+Sans&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+
+    <title>Anuj Nair Resume</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-  <page size="A4">
-    <div class="container">
-      <div class="leftPanel">
-        <p class="visitor-counter">This page has been viewed <span id="count" class="viewers-count-tag"></span>
-          times</p>
-        <img src="avatar.png"/>
-        <div class="details">
-          <div class="item bottomLineSeparator">
-            <h2>
-              CONTACT
-            </h2>
-            <div class="smallText">
-              <p>
-                <i class="fa fa-phone contactIcon" aria-hidden="true"></i>
-                (+33) 777 777 77
-              </p>
-              <p>
-                <i class="fa fa-envelope contactIcon" aria-hidden="true"></i>
-                <a href="mailto:lorem@ipsum.com@gmail.com">
-                  lorem@ipsum.com
-                </a>
-              </p>
-              <p>
-                <i class="fa fa-map-marker contactIcon" aria-hidden="true"></i>
-                New York, USA
-              </p>
-              <p>
-                <i class="fa fa-linkedin-square contactIcon" aria-hidden="true"></i>
-                <a href="#">
-                  in/loremipsum
-                </a>
-              </p>
-              <p class="lastParagrafNoMarginBottom">
-                <i class="fa fa-skype contactIcon" aria-hidden="true"></i>
-                <a href="#">
-                  loremipsum
-                </a>
-              </p>
-            </div>
-          </div>
-          <div class="item bottomLineSeparator">
-            <h2>
-              SKILLS
-            </h2>
-            <div class="smallText">
-              <div class="skill">
-                <div>
-                  <span>Accounting</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">14</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
+    
+    <article class="wrapper">
 
-              <div class="skill">
-                <div>
-                  <span>Word</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">3</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
+        <section class="section-profile header-container">
+            <h1 class="section-profile-h1"><span class="section-profile-h1-sub-h1">Anuj Nair</span></h1>
+            <p class="viewers-count">This page has been viewed <span id="visitors" class="viewers-count-tag"></span>
+                times.</p>
 
-              <div class="skill">
-                <div>
-                  <span>Powerpoint</span>
+            <footer class="footer" id="footer">
+                <div class="footer-container">
+                    <ul>
+                        <li>
+                            <a href="mailto:anujnairr@gmail.com"><i class="fa-solid fa-envelope"></i>Mail</a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/anujnairr/" target="_blank"><i
+                                    class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/anujnairr" target="_blank"><i class="fa-brands fa-github"></i>GitHub</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">3</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
+            </footer>
 
-              <div class="skill">
-                <div>
-                  <span>Accounting</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
+        </section>
 
-              <div class="skill">
-                <div>
-                  <span>Marketing</span>
+        <section class="section-experience section-container">
+            <h2>Experience</h2>
+            <div class="section-content">
+                <div class="section-exp">
+                    <h3>AWS DevOps Engineer</h3>
+                    <p3>Autodesk, Bangalore</p3>
+                    <br> October 2021 - Present
+                    <ul>
+                        <li>Automated scaling down of RDS, EC2, ECS and auto-scaling groups on non-business days, reducing operational costs by 20%.</li>
+                        <li>Implemented auto-scaling groups with load balancers, ensuring 99% uptime by recycling EC2 instances and ECS tasks during peak loads and reducing manual intervention by 90%.</li>
+                        <li>Wrote bash scripts to automate EC2 service restarts, ensuring ~99% application uptime and eliminating manual recovery efforts.</li>
+                        <li>Wrote reusable Terraform modules for scalable AWS infrastructure, and applying those changes across multiple environments.</li>
+                        <li>Identified and resolved security vulnerabilities in packages, tested and implemented fixes, reducing breach exposure, and enhancing security and trust.</li>
+                        <li>Deployed to production with Jenkins and AWS CodePipeline while providing 24/7 rotational on-call support and resolving 50+ incidents monthly through Jira and ServiceNow.</li>
+                        <li>Led knowledge transfer and mentorship on runbooks and processes for 20+ support engineers, thus improving MTTA and reducing MTTR by 30%.</li>
+                        <li>Collaborated with engineering teams to create 10+ runbooks and SOPs, improving operational efficiency and achieving 99% SLAs.</li>
+                        <li>Triaged P1/P2 incidents using Splunk, Datadog, Dynatrace, Grafana, and CloudWatch Logs, analyzing application errors and infrastructure issues.</li>
+                    </ul>
                 </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
+                <div class="section-exp">
+                    <h3>System Engineer</h3>
+                    <p3>CGI, Bangalore</p3>
+                    <br> March 2019 - October 2021
+                    <ul>
+                        <li>Managed on-prem Linux servers with regular health checks, patching, and system administration.</li>
+                        <li>Configured mounts for web applications and implemented server hardening to reduce vulnerabilities.</li>
+                        <li>Maintained operational stability of AWS hosted applications through proactive monitoring.</li>
+                        <li>Handled VMware ESXi and vSphere environments, performed maintenance on VMs and physical servers.</li>
+                        <li>Monitored infrastructure health using Nagios, Splunk and AppDynamics.</li>
+                    </ul>
                 </div>
-              </div>
+        </section>
 
-              <div class="skill">
-                <div>
-                  <span>Photoshop</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>French</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span class="alignright">2</span>
-                  <span class="alignleft">years</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>English</span>
-                </div>
-                <div class="yearsOfExperience">
-                    <span class="alignright">1</span>
-                    <span class="alignleft">year</span>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div>
-                  <span>Management</span>
-                </div>
-                <div class="yearsOfExperience">
-                  <span>1 year</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="item">
-            <h2>
-              EDUCATION
-            </h2>
-            <div class="smallText">
-              <p class="bolded white">
-                Bachelor of Economics
-              </p>
-              <p>
-                The University of Sydney
-              </p>
-              <p>
-                2010 - 2014
-              </p>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      <div class="rightPanel">
-        <div>
-          <h1>
-            Jhon Doe
-          </h1>
-          <div class="smallText">
-            <h3>
-              Accountant
-            </h3>
-          </div>
-        </div>
-        <div>
-          <h2>
-            About me
-          </h2>
-          <div class="smallText">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris venenatis, justo sed feugiat pulvinar., quam ipsum tincidunt enim, ac gravida est metus sit amet neque. Curabitur ut arcu ut nunc finibus accumsan id id elit. 
-            </p>
-            <p>
-              Vivamus non magna quis neque viverra finibus quis a tortor. 
-            </p>
-          </div>
-        </div>
-        <div class="workExperience">
-          <h2>
-            Work experience
-          </h2>
-          <ul>
-            <li>
-              <div class="jobPosition">
-                <span class="bolded">
-                  Accountant
-                </span>
-                <span>
-                  Jun 2014 - Sept 2015
-                </span>
-              </div>
-              <div class="projectName bolded">
-                <span>
-                  Accounting project name | Company name
-                </span>
-              </div>
-              <div class="smallText">
-                <p>
-                  Quisque rutrum mollis ornare. In pharetra diam libero, non interdum dui imperdiet quis. Quisque aliquam sapien in libero finibus sodales. Mauris id commodo metus. In in laoreet dolor.
-                </p>
+        <section class="section-skills section-container">
+            <h2>Skills</h2>
+            <div class="section-content">
                 <ul>
-                  <li>
-                    Integer commodo ullamcorper mauris, id condimentum lorem elementum sed. Etiam rutrum eu elit ut hendrerit. Vestibulum congue sem ac auctor semper. Aenean quis imperdiet magna. Sed eget ullamcorper enim. Vestibulum consequat turpis eu neque efficitur blandit sed sit amet neque. Curabitur congue semper erat nec blandit.
-                  </li>
+                    <li>
+                        Cloud: AWS
+                    </li>
+                    <li>
+                        Development: NodeJS, Python, Bash, Git
+                    </li>
+                    <li>
+                        IaC: Terraform, Jenkins
+                    </li>
+                    <li>
+                        Containerization: Docker, Kubernetes
+                    </li>
+                    <li>
+                        Monitoring: CloudWatch, Splunk, Grafana, Datadog
+                    </li>
                 </ul>
-                <p>
-                  <span class="bolded">Skills: </span>Accounting, Word, Powerpoint
-                </p>
-              </div>
-            </li>
+            </div>
+        </section>
 
-
-            <li>
-              <div class="jobPosition">
-                <span class="bolded">
-                  Digital Marketing Expert
-                </span>
-                <span>
-                  Nov 2020 - Sept 2021
-                </span>
-              </div>
-              <div class="projectName bolded">
-                <span>
-                  Project name | Company name
-                </span>
-              </div>
-              <div class="smallText">
-                <p>
-                  Morbi rhoncus, tortor vel luctus tincidunt, sapien lacus vehicula augue, vitae ultrices eros diam eget mauris. Aliquam dictum nulla vel augue tristique bibendum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                </p>
+        <section class="section-certification section-container">
+            <h2>Certifications</h2>
+            <div class="section-content">
                 <ul>
-                  <li>
-                    <p>
-                      Phasellus ac accumsan ligula. Morbi quam massa, pellentesque nec nunc nec, consectetur gravida dolor. Mauris vulputate sagittis pellentesque. Donec luctus lorem luctus purus condimentum, id ultrices lacus aliquam.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Quisque et lorem sagittis lacus lobortis euismod non id mi. Nulla sed tincidunt libero, placerat imperdiet magna. Quisque lectus quam, viverra eu congue ut, congue vitae metus. Sed in varius sapien. Cras et elementum tellus.
-                    </p>
-                  </li>
+                    <li>
+                        AWS Certified Solutions Architect Associate <a
+                            href="https://www.credly.com/badges/7e45cb6a-c876-4d72-8049-1ec5242e78be/public_url"
+                            target="_blank"><i class="fa-solid fa-up-right-from-square fa-xs"
+                                style="color:#b3b3b3;"></i></a>
+                    </li>
+                    <li>
+                        HashiCorp Certified: Terraform Associate <a
+                            href="https://www.credly.com/badges/d690fb6b-4b46-413b-baa0-712edc4c3558/public_url"
+                            target="_blank"><i class="fa-solid fa-up-right-from-square fa-xs"
+                                style="color:#b3b3b3;"></i></a>
+                    </li>
                 </ul>
-                <p>
-                  <span class="bolded">Skills: </span> Writing, Photoshop
-                </p>
-              </div>
-            </li>
+            </div>
+        </section>
 
-            <li>
-              <div class="jobPosition">
-                <span class="bolded">
-                  Accountant
-                </span>
-                <span>
-                  Jun 2017 - May 2020
-                </span>
-              </div>
-              <div class="projectName bolded">
-                <span>
-                  Project name | Company name
-                </span>
-              </div>
-              <div class="smallText">
-                <p>
-                  Maecenas eget semper sapien. Sed convallis nunc egestas dui convallis dictum id nec metus. Donec vestibulum justo mauris, ac congue lacus tincidunt id. Vivamus rhoncus risus ac ex varius gravida. Donec eget ullamcorper ipsum.
-                </p>
-  
+        <section class="section-project section-container">
+            <h2>Projects</h2>
+            <div class="section-content">
                 <ul>
-                  <li>
-                    <p>
-                      Maecenas auctor euismod felis vel semper. Nulla facilisi. Quisque quis odio dui. Morbi venenatis magna quis libero mollis facilisis. Ut semper, eros eu dictum efficitur, ligula felis aliquet ante, sed commodo odio nisi a augue. 
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Curabitur at interdum nunc, nec sodales nulla. Nulla facilisi. Nam egestas risus sed maximus feugiat. Sed semper arcu ac dui consectetur consectetur. Nulla dignissim nec turpis id rhoncus. In hac habitasse platea dictumst. 
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Nunc iaculis mauris nec viverra placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam erat volutpat. Vivamus sed ex et magna volutpat sodales et sed odio. 
-                    </p>
-                  </li>
+                    <li>
+                        <h3>Cloud resume challenge</h3>
+                    </li>
+                    <ul>
+                        <li>
+                            <p>
+                                Technologies used: AWS S3, Cloudfront, API Gateway, Lambda, DynamoDB, Terraform, GitHub Actions, HTML/CSS/JS.
+                            </p>
+                        </li>
+                        <li>Project source code<a href="https://github.com/anujnairr/cloud-resume"
+                            target="_blank"><i class="fa-solid fa-up-right-from-square fa-xs"
+                            style="color:#b3b3b3;"></i></a>
+                        </li>
+                        <br>
+                    </ul>
+                    <li>
+                        <h3>Three tier web architecture</h3>
+                    </li>
+                    <ul>
+                        <li>
+                            <p>
+                                Technologies used: AWS EKS, NodeJS, MongoDB, Terraform.
+                            </p>
+                        </li>
+                        <li>Project source code<a href="https://github.com/anujnairr/cloud-resume"
+                            target="_blank"><i class="fa-solid fa-up-right-from-square fa-xs"
+                            style="color:#b3b3b3;"></i></a>
+                        </li>
+                    </ul>
                 </ul>
-                <p>
-                  <span class="bolded">Skills: </span>Management, French
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </page>
-  <page size="A4">
-    <div class="container">
-      <div class="leftPanel">
-      </div>
-      <div class="rightPanel">
-      </div>
-  </page>   
+            </div>
+        </section>
+
+        <section class="section-education section-container">
+            <h2>Education</h2>
+            <div class="section-content">
+                <h3>Bachelor of Technology</h3>
+                <p3>SCMS School of Engineering and Technology, Ernakulam, Kerala</p3>
+                <br> 2013 - 2017
+            </div>
+        </section>
+    </article>
+
+    <script src="./js/visitorcount.js"></script>
+
 </body>
-<script src="./visitCounter.js"></script>
-</html>

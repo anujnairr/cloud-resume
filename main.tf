@@ -25,3 +25,13 @@ module "cloudfront" {
   source = "./cloudfront"
   env    = var.env
 }
+
+# module "dynamodb" {
+#   source = "./dynamodb"
+#   env    = var.env
+# }
+
+# module "lambda" {
+#   source = "./lambda"
+#   env    = var.env
+# }
