@@ -1,0 +1,9 @@
+name: Test Action
+on: [push]
+jobs:
+  Test-Action:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{github.actor}} running this Test Action."
+      - run: echo "this is run on ${{runner.os}}."
+      - run: echo "name of the branch is "${{github.ref}}.
