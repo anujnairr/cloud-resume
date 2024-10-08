@@ -26,6 +26,18 @@ module "cloudfront" {
   env    = var.env
 }
 
+resource "terraform_data" "exec" {
+
+  provisioner "local-exec" {
+
+    interpreter = ["bash", "-c"]
+    on_failure  = continue
+    command     = <<-EOF
+    aws s3 cp src s3://${module.cloudfront.s3}/ --recursive 2>&1 /dev/null
+    EOF
+  }
+}
+
 # module "dynamodb" {
 #   source = "./dynamodb"
 #   env    = var.env
