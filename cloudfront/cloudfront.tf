@@ -1,9 +1,38 @@
-module "origin" {
-  source = "../s3"
-  env    = var.env
+variable "env" {}
+
+/* -----------------S3----------------- */
+
+resource "random_id" "this" {
+  byte_length = 8
 }
 
-variable "env" {}
+resource "aws_s3_bucket" "origin" {
+  bucket = "${var.env}-origin-bucket-${random_id.this.hex}"
+  tags = {
+    Name        = "${var.env}-origin-bucket"
+    Environment = "${var.env}"
+  }
+}
+
+resource "aws_s3_bucket_versioning" "versioning" {
+  bucket = aws_s3_bucket.origin.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+output "s3" {
+  value = aws_s3_bucket.origin.id
+}
+
+resource "aws_s3_bucket_website_configuration" "main" {
+  bucket = aws_s3_bucket.origin.id
+  index_document {
+    suffix = "index.html"
+  }
+}
+
+/* -----------------CloudFront----------------- */
 
 resource "aws_cloudfront_origin_access_control" "oac" {
   name                              = "oac"
@@ -14,30 +43,36 @@ resource "aws_cloudfront_origin_access_control" "oac" {
 
 resource "aws_cloudfront_distribution" "main" {
   origin {
-    domain_name              = module.origin.bucket_domain_name
-    origin_id                = "oac-${module.origin.bucket}" /*"oac-${aws_s3_bucket.}"*/
+    domain_name              = aws_s3_bucket.origin.bucket_regional_domain_name
+    origin_id                = "oac-${aws_s3_bucket.origin.bucket_domain_name}"
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
   }
 
-  enabled = true
+  price_class = "PriceClass_100"
+  enabled     = true
+
   viewer_certificate {
     cloudfront_default_certificate = true
   }
 
-  price_class = "PriceClass_100"
-
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["IN"]
+      restriction_type = "none"
+      locations        = []
     }
   }
 
   default_cache_behavior {
-    allowed_methods        = ["GET", "HEAD"]
+    allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     viewer_protocol_policy = "redirect-to-https"
-    cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = "oac-${module.origin.bucket_domain_name}" /*"oac-${aws_s3_bucket.origin.bucket}" */
+    cached_methods         = ["GET", "HEAD", "OPTIONS"]
+    target_origin_id       = "oac-${aws_s3_bucket.origin.bucket_domain_name}"
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
   }
 
   tags = {
