@@ -13,5 +13,6 @@ jobs:
     steps:
       - name: "Checkout terraform code"
         uses: actions/checkout@v4
-      - name: "Test code"
-        run: ${{github.actor}} is testing this workflow at ${{github.ref}} branch.
+
+      - name: "Test workflow"
+        run: echo "${{github.actor}} is testing this workflow."

@@ -1,6 +1,4 @@
 
-variable "env" {}
-
 resource "aws_dynamodb_table" "dynamodb" {
   name           = "${var.env}-count-table"
   read_capacity  = 1
