@@ -39,6 +39,12 @@ resource "terraform_data" "exec" {
   }
 }
 
+module "oidc" {
+  source = "./oidc"
+  env    = var.env
+  s3-arn = module.cloudfront.s3-arn
+}
+
 # module "dynamodb" {
 #   source = "./dynamodb"
 #   env    = var.env

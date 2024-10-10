@@ -24,6 +24,10 @@ output "s3" {
   value = aws_s3_bucket.origin.id
 }
 
+output "s3-arn" {
+  value = aws_s3_bucket.origin.arn
+}
+
 resource "aws_s3_bucket_website_configuration" "main" {
   bucket = aws_s3_bucket.origin.id
   index_document {
@@ -78,4 +82,8 @@ resource "aws_cloudfront_distribution" "main" {
     Name        = "${var.env}-s3-${aws_cloudfront_origin_access_control.oac.name}"
     Environment = "${var.env}"
   }
+}
+
+output "cf-arn" {
+  value = aws_cloudfront_distribution.main.arn
 }
