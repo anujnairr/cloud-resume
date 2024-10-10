@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feat/jenkins
   pull_request:
     branches:
       - main
@@ -20,13 +21,27 @@ jobs:
     steps:
       - name: "Checkout terraform code"
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: "Render terraform docs and push changes back to PR"
+        uses: terraform-docs/gh-actions@main
+        with:
+          working-dir: .
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
+
       - name: "Configure AWS credentials"
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ${{env.AWS_REGION}}
-          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          role-session-name: staging-oidc-policy
           role-to-assume: arn:aws:iam::211125437730:role/staging-oidc-policy
-      - name: "Test workflow"
-        run: echo "${{github.actor}} is testing this workflow."
+
+      # - name: "Test workflow"
+      #   run: echo "${{github.actor}} is testing this workflow."
       - name: "Testing STS"
         run: aws sts get-caller-identity
+      - name: "Testing AWS S3 access"
+        run: aws s3 ls s3://staging-origin-bucket-17a26b40ed69a3f8
