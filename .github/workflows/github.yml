@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/jenkins
   pull_request:
     branches:
       - main
@@ -20,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout terraform code"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
@@ -39,8 +38,6 @@ jobs:
           role-session-name: staging-oidc-policy
           role-to-assume: arn:aws:iam::211125437730:role/staging-oidc-policy
 
-      # - name: "Test workflow"
-      #   run: echo "${{github.actor}} is testing this workflow."
       - name: "Testing STS"
         run: aws sts get-caller-identity
       - name: "Testing AWS S3 access"
