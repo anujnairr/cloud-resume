@@ -39,3 +39,5 @@ jobs:
         run: aws sts get-caller-identity
       - name: "Testing AWS S3 access"
         run: aws s3 ls s3://staging-origin-bucket-17a26b40ed69a3f8
+      - name: "Testing Lambda access"
+        run: aws lambda list-functions
