@@ -34,7 +34,6 @@ jobs:
           aws-region: ${{env.AWS_REGION}}
           role-session-name: staging-oidc-policy
           role-to-assume: arn:aws:iam::211125437730:role/staging-oidc-policy
-
       - name: "Testing STS"
         run: aws sts get-caller-identity
       - name: "Testing AWS S3 access"

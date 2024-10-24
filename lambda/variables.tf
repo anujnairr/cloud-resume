@@ -1,4 +1,5 @@
 
 variable "env" {}
 variable "region" {}
-variable "dynamodb" {}
+variable "dynamodb-arn" {}
+variable "dynamodb-name" {}

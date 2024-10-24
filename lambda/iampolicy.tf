@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "lambda-dynamodb-access" {
       "dynamodb:UpdateItem"
     ]
     resources = [
-      "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.this.account_id}:"
+      "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.this.account_id}:table/${var.dynamodb-name}"
     ]
   }
 }

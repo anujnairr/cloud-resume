@@ -10,7 +10,6 @@ resource "aws_iam_role" "this" {
           Action = "sts:AssumeRoleWithWebIdentity"
           Effect = "Allow"
           Principal = {
-
             Federated = [aws_iam_openid_connect_provider.this.arn]
           }
           Condition = {
@@ -32,20 +31,26 @@ resource "aws_iam_role" "this" {
         Statement = [
           {
             Action = [
-              "s3:GetBucketLocation",
-              "s3:ListAllMyBuckets",
+              "lambda:CreateFunction",
+              "lambda:UpdateFunctionCode",
+              "lambda:UpdateFunctionConfiguration",
+              "lambda:GetFunction",
+              "lambda:DeleteFunction",
+              "lambda:ListFunctions"
             ]
             Effect   = "Allow"
             Resource = "*"
           },
           {
             Action = [
+              "s3:GetBucketLocation",
+              "s3:ListAllMyBuckets",
               "s3:GetObject",
               "s3:GetObjectAcl",
               "s3:GetObjectTagging",
               "s3:GetObjectVersion",
               "s3:ListBucket",
-              "s3:PutObject",
+              "s3:PutObject"
             ]
             Effect = "Allow"
             Resource = [var.s3-arn,
@@ -56,6 +61,8 @@ resource "aws_iam_role" "this" {
     })
   }
 }
+
+/* -------------failed due to GitHub organization requirement------------- */
 
 # data "aws_iam_policy_document" "oidc-policy" {
 #   statement {
