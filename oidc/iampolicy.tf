@@ -14,7 +14,7 @@ resource "aws_iam_role" "this" {
           }
           Condition = {
             StringLike = {
-              "token.actions.githubusercontent.com:sub" = "repo:anujnairr/cloud-resume:ref:refs/heads/main",
+              "token.actions.githubusercontent.com:sub" = "repo:anujnairr/cloud-resume:*",
               "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
             }
           }
