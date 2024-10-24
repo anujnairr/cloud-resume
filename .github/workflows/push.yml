@@ -4,21 +4,15 @@ on:
     branches:
       - feat/**
 
-env:
-  AWS_REGION: "us-east-1"
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   generate-docs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          ref: feat/jenkins
+          ref: feat/backend
 
       - name: Render terraform docs inside the README.md and push changes back to PR branch
         uses: terraform-docs/gh-actions@v1.3.0
@@ -27,16 +21,3 @@ jobs:
           output-file: README.md
           output-method: inject
           git-push: "true"
-      - name: "Configure AWS credentials"
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: ${{env.AWS_REGION}}
-          role-session-name: staging-oidc-policy
-          role-to-assume: arn:aws:iam::211125437730:role/staging-oidc-policy
-
-      - name: "Testing STS"
-        run: aws sts get-caller-identity
-      - name: "Testing AWS S3 access"
-        run: aws s3 ls s3://staging-origin-bucket-17a26b40ed69a3f8
-      - name: "Testing Lambda access"
-        run: aws lambda list-functions
