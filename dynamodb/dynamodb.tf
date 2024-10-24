@@ -6,14 +6,21 @@ resource "aws_dynamodb_table" "dynamodb" {
   hash_key       = "CountID"
   attribute {
     name = "CountID"
-    type = "S"
-  }
-  attribute {
-    name = "count"
     type = "N"
   }
   tags = {
     Name        = "${var.env}-count-table"
     Environment = "${var.env}"
   }
+}
+
+resource "aws_dynamodb_table_item" "initial-value" {
+  hash_key   = aws_dynamodb_table.dynamodb.hash_key
+  table_name = aws_dynamodb_table.dynamodb.name
+  item       = <<-EOF
+  {
+    "CountID": {"N": "1"},
+    "count" : {"N": "1"}
+  }
+  EOF
 }

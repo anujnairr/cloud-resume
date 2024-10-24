@@ -12,10 +12,9 @@ resource "aws_iam_role" "this" {
           Principal = {
             Federated = [aws_iam_openid_connect_provider.this.arn]
           }
-          //FIXME fix the permissions
           Condition = {
             StringLike = {
-              "token.actions.githubusercontent.com:sub" = "repo:anujnairr/cloud-resume:*",
+              "token.actions.githubusercontent.com:sub" = "repo:anujnairr/cloud-resume:ref:refs/heads/main",
               "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
             }
           }
@@ -32,16 +31,20 @@ resource "aws_iam_role" "this" {
         Statement = [
           {
             Action = [
-              "s3:GetBucketLocation",
-              "s3:ListAllMyBuckets",
-              "lambda:*",
-              //FIXME fix permissions.
+              "lambda:CreateFunction",
+              "lambda:UpdateFunctionCode",
+              "lambda:UpdateFunctionConfiguration",
+              "lambda:GetFunction",
+              "lambda:DeleteFunction",
+              "lambda:ListFunctions",
             ]
             Effect   = "Allow"
             Resource = "*"
           },
           {
             Action = [
+              "s3:GetBucketLocation",
+              "s3:ListAllMyBuckets",
               "s3:GetObject",
               "s3:GetObjectAcl",
               "s3:GetObjectTagging",
