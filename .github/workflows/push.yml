@@ -4,6 +4,12 @@ on:
     branches:
       - feat/**
 
+env:
+  AWS_REGION: "us-east-1"
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   generate-docs:
     permissions:
@@ -24,7 +30,7 @@ jobs:
       - name: "Configure AWS credentials"
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: "us-east-1"
+          aws-region: ${{env.AWS_REGION}}
           role-session-name: staging-oidc-policy
           role-to-assume: arn:aws:iam::211125437730:role/staging-oidc-policy
 
