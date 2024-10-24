@@ -36,7 +36,7 @@ resource "aws_iam_role" "this" {
               "lambda:UpdateFunctionConfiguration",
               "lambda:GetFunction",
               "lambda:DeleteFunction",
-              "lambda:ListFunctions",
+              "lambda:ListFunctions"
             ]
             Effect   = "Allow"
             Resource = "*"
@@ -50,7 +50,7 @@ resource "aws_iam_role" "this" {
               "s3:GetObjectTagging",
               "s3:GetObjectVersion",
               "s3:ListBucket",
-              "s3:PutObject",
+              "s3:PutObject"
             ]
             Effect = "Allow"
             Resource = [var.s3-arn,
