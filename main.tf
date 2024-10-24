@@ -45,12 +45,17 @@ module "oidc" {
   s3-arn = module.cloudfront.s3-arn
 }
 
-# module "dynamodb" {
-#   source = "./dynamodb"
-#   env    = var.env
-# }
+module "dynamodb" {
+  source = "./dynamodb"
+  env    = var.env
+}
 
-# module "lambda" {
-#   source = "./lambda"
-#   env    = var.env
-# }
+
+module "lambda" {
+  source        = "./lambda"
+  env           = var.env
+  region        = var.region
+  dynamodb-arn  = module.dynamodb.arn
+  dynamodb-name = module.dynamodb.name
+  depends_on    = [module.dynamodb]
+}
