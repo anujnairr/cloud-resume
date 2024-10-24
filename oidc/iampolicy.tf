@@ -10,9 +10,9 @@ resource "aws_iam_role" "this" {
           Action = "sts:AssumeRoleWithWebIdentity"
           Effect = "Allow"
           Principal = {
-
             Federated = [aws_iam_openid_connect_provider.this.arn]
           }
+          //FIXME fix the permissions
           Condition = {
             StringLike = {
               "token.actions.githubusercontent.com:sub" = "repo:anujnairr/cloud-resume:*",
@@ -34,6 +34,8 @@ resource "aws_iam_role" "this" {
             Action = [
               "s3:GetBucketLocation",
               "s3:ListAllMyBuckets",
+              "lambda:*",
+              //FIXME fix permissions.
             ]
             Effect   = "Allow"
             Resource = "*"
@@ -56,6 +58,8 @@ resource "aws_iam_role" "this" {
     })
   }
 }
+
+/* -------------failed due to GitHub organization requirement------------- */
 
 # data "aws_iam_policy_document" "oidc-policy" {
 #   statement {
