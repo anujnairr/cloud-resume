@@ -1,3 +1,7 @@
+# Cloud Resume
+
+This is my resume that's hosted in AWS. Its a static site put up in S3, caching with CloudFront, a dynamic visitor count created with API Gateway, Lambda and DynamoDB.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

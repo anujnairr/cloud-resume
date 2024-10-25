@@ -1,18 +1,30 @@
+
 data "aws_caller_identity" "this" {}
 
-data "aws_iam_policy_document" "lambda-dynamodb-access" {
-
-  statement {
-    sid     = "1"
-    actions = ["sts:AssumeRole"]
-    principals {
-      type        = "Service"
-      identifiers = ["lambda.amazonaws.com"]
-    }
+resource "aws_iam_role" "this" {
+  name = "lambda-execution-role"
+  tags = {
+    Name        = "${var.env}-lambda-execution-role"
+    Environment = "${var.env}"
   }
 
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+data "aws_iam_policy_document" "this" {
   statement {
-    sid = "2"
+    sid = "DynamoDBAccess"
     actions = [
       "dynamodb:GetItem",
       "dynamodb:Query",
@@ -21,11 +33,12 @@ data "aws_iam_policy_document" "lambda-dynamodb-access" {
       "dynamodb:UpdateItem"
     ]
     resources = [
-      "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.this.account_id}:table/${var.dynamodb-name}"
+      "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.this.account_id}:table/${var.dynamodb-name}/*"
     ]
   }
 }
 
-resource "aws_iam_policy" "lambda-dynamodb-role" {
-  policy = data.aws_iam_policy_document.lambda-dynamodb-access.json
+resource "aws_iam_role_policy" "this" {
+  role   = aws_iam_role.this.name
+  policy = data.aws_iam_policy_document.this.json
 }
