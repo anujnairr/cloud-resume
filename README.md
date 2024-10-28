@@ -1,6 +1,17 @@
 # Cloud Resume
 
-This is my resume that's hosted in AWS. Its a static site put up in S3, caching with CloudFront, a dynamic visitor count created with API Gateway, Lambda and DynamoDB.
+This is my resume that's hosted in AWS. Its a static site put up in S3, caching with CloudFront, a dynamic visitor count created with JS, API Gateway, Lambda and DynamoDB.
+
+## Usage
+
+Steps:
+
+1. Clone the repository.
+2. Open the project in code editor.
+3. Modify the source code to fit your needs.
+4. Initialize the project with `terraform init`.
+5. You could `terraform plan` and `terraform apply` from local if you have the right AWS provider credentials, otherwise Github Actions would take care of deploying the code.
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
