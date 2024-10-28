@@ -9,7 +9,8 @@ resource "aws_lambda_function" "lambda" {
   function_name    = "${var.env}-count-function"
   role             = aws_iam_role.this.arn
   filename         = "${path.module}/lambda.zip"
-  handler          = "lambda_function.lambda_handler"
+  timeout          = 5
+  handler          = "lambda.lambda_handler"
   runtime          = "python3.12"
   source_code_hash = data.archive_file.this.output_base64sha256
 
