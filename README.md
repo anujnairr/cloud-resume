@@ -36,6 +36,7 @@ Steps:
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_apigw"></a> [apigw](#module\_apigw) | ./apigw | n/a |
 | <a name="module_cloudfront"></a> [cloudfront](#module\_cloudfront) | ./cloudfront | n/a |
 | <a name="module_dynamodb"></a> [dynamodb](#module\_dynamodb) | ./dynamodb | n/a |
 | <a name="module_lambda"></a> [lambda](#module\_lambda) | ./lambda | n/a |
