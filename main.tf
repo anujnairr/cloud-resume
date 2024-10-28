@@ -59,3 +59,10 @@ module "lambda" {
   dynamodb-name = module.dynamodb.name
   depends_on    = [module.dynamodb]
 }
+
+module "apigw" {
+  source            = "./apigw"
+  env               = var.env
+  lambda-invoke-urn = module.lambda.lambda-arn
+  function-name     = module.lambda.function-name
+}

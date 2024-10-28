@@ -24,21 +24,24 @@ resource "aws_iam_role" "this" {
 
 data "aws_iam_policy_document" "this" {
   statement {
-    sid = "DynamoDBAccess"
+    sid = "1"
     actions = [
+      "dynamodb:BatchGetItem",
       "dynamodb:GetItem",
       "dynamodb:Query",
       "dynamodb:Scan",
+      "dynamodb:BatchWriteItem",
       "dynamodb:PutItem",
       "dynamodb:UpdateItem"
     ]
     resources = [
-      "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.this.account_id}:table/${var.dynamodb-name}/*"
+      "arn:aws:dynamodb:${var.region}:${data.aws_caller_identity.this.account_id}:table/${var.dynamodb-name}"
     ]
   }
 }
 
 resource "aws_iam_role_policy" "this" {
+  name   = "${var.env}-dynamodb-${aws_iam_role.this.name}"
   role   = aws_iam_role.this.name
   policy = data.aws_iam_policy_document.this.json
 }
