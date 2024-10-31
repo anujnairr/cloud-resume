@@ -21,13 +21,12 @@ resource "aws_s3_bucket_versioning" "versioning" {
 }
 
 
-
-resource "aws_s3_bucket_website_configuration" "main" {
-  bucket = aws_s3_bucket.origin.id
-  index_document {
-    suffix = "index.html"
-  }
-}
+# resource "aws_s3_bucket_website_configuration" "main" {
+#   bucket = aws_s3_bucket.origin.id
+#   index_document {
+#     suffix = "index.html"
+#   }
+# }
 
 /* -----------------CloudFront----------------- */
 
